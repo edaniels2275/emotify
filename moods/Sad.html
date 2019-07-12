@@ -20,9 +20,8 @@
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Sad</h1>
-            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/543819150&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-            <div id="show-results-sad"></div>
+            <h1 class="display-4">Chill</h1>
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/214698107&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>            <div id="show-results-chill"></div>
             <div id="images"></div>
 
         </div>
@@ -33,39 +32,5 @@
 
 <!-- Script -->
 <script type="text/javascript" src="../selection.js"></script>
-
-<script type="text/javascript">
-    // Event listener for our cat-button
-    $(document).ready(function () {
-
-        // Storing our giphy API URL for a random cat image
-        var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=sad";
-
-        // Perfoming an AJAX GET request to our queryURL
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
-
-            // After the data from the AJAX request comes back
-            .then(function (response) {
-
-                // Saving the image_original_url property
-                var imageUrl = response.data.image_original_url;
-
-                // Creating and storing an image tag
-                var gifImage = $("<img>");
-
-                // Setting the gifImage src attribute to imageUrl
-                gifImage.attr("src", imageUrl);
-                gifImage.attr("alt", "image");
-
-                // Prepending the gifImage to the images div
-                $("#images").prepend(gifImage);
-            });
-
-
-    });
-</script>
 
 </html>

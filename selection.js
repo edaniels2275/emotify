@@ -45,13 +45,7 @@
               //div that displays the total of visitors who selected that option vs the total
       
       // // 2. function for recording whatever button the user clicked 
-      $("#show-results-happy").append(displayOne.toFixed(0) + " percent of users also feel happy :)");
-      $("#show-results-sad").append(displayTwo.toFixed(0) + " percent of users also feel sad :'(");
-      $("#show-results-lit").append(displayThree.toFixed(0) + " percent of users also feel LIIIIIT ");
-      $("#show-results-angry").append(displayFour.toFixed(0) + " percent of users also feel angry");
-      $("#show-results-chill").append(displayFive.toFixed(0) + " percent of users also feel chill");
-      $("#show-results-tired").append(displaySix.toFixed(0) + " percent of users also feel tired");
-      
+
       $("a").on("click", function() {
       //   event.preventDefault();
        
@@ -68,6 +62,7 @@
           btn1: optionA + 1
         });
         var displayOne = (optionA / clickCounter) * 100;
+        console.log(displayOne);
         console.log(optionA);
       //   console.log(displayOne);
       //   $("#show-results").show();
@@ -149,6 +144,14 @@
       //   $("#show-results").append(displaySix.toFixed(0) + " percent of users also feel relaxed");
       
       });
+
+      $("#show-results-happy").append(displayOne.toFixed(0) + " percent of users also feel happy :)");
+      $("#show-results-sad").append(displayTwo.toFixed(0) + " percent of users also feel sad :'(");
+      $("#show-results-lit").append(displayThree.toFixed(0) + " percent of users also feel LIIIIIT ");
+      $("#show-results-angry").append(displayFour.toFixed(0) + " percent of users also feel angry");
+      $("#show-results-chill").append(displayFive.toFixed(0) + " percent of users also feel chill");
+      $("#show-results-tired").append(displaySix.toFixed(0) + " percent of users also feel tired");
+      
       
       database.ref().on(
           'value',
