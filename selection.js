@@ -48,9 +48,9 @@
       $("#show-results-happy").append(displayOne.toFixed(0) + " percent of users also feel happy :)");
       $("#show-results-sad").append(displayTwo.toFixed(0) + " percent of users also feel sad :'(");
       $("#show-results-lit").append(displayThree.toFixed(0) + " percent of users also feel LIIIIIT ");
-      $("#show-results-angry").append(displayFour.toFixed(0) + " percent of users also feel focused");
-      $("#show-results-chill").append(displayFive.toFixed(0) + " percent of users also feel angry >:O");
-      $("#show-results-tired").append(displaySix.toFixed(0) + " percent of users also feel relaxed");
+      $("#show-results-angry").append(displayFour.toFixed(0) + " percent of users also feel angry");
+      $("#show-results-chill").append(displayFive.toFixed(0) + " percent of users also feel chill");
+      $("#show-results-tired").append(displaySix.toFixed(0) + " percent of users also feel tired");
       
       $("a").on("click", function() {
       //   event.preventDefault();
