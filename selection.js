@@ -26,13 +26,13 @@
     var optionF;
     var clickCounter;
 
-    // var displayOne = (optionA / clickCounter) * 100;
-    // var displayTwo = (optionB / clickCounter) * 100;
-    // var displayThree = (optionC / clickCounter) * 100;
-    // var displayFour = (optionD / clickCounter) * 100;
-    // var displayFive = (optionE / clickCounter) * 100;
-    // var displaySix = (optionF / clickCounter) * 100;
-    // console.log(displayOne);
+    var displayOne = (optionA / clickCounter) * 100;
+    var displayTwo = (optionB / clickCounter) * 100;
+    var displayThree = (optionC / clickCounter) * 100;
+    var displayFour = (optionD / clickCounter) * 100;
+    var displayFive = (optionE / clickCounter) * 100;
+    var displaySix = (optionF / clickCounter) * 100;
+    console.log(displayOne);
 
     //variable that compares whatever the user clicked on to all other clicks 
     //and makes it a percentage
@@ -61,6 +61,7 @@
         btn1: optionA + 1
       });
       var displayOne = (optionA / clickCounter) * 100;
+
       $("#show-results-happy").append(displayOne.toFixed(0) + " percent of users also feel happy :)");
       console.log(displayOne);
       console.log(optionA);
