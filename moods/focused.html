@@ -39,7 +39,7 @@
                     <div class="wrapper">
                             <p>Would you like recommendations for similar artists?</p>
                             <button class="btn btn-info" onclick= "tastecall()" role="button">Yes</button>
-                            <button class="btn btn-info" onclick="hidewrapper()" role="button" >No</button>
+                            <button class="btn btn-info" onclick="noclick()" role="button" >No</button>
                         </div>
                         <!-- User engagement results-->
                         <div class ="box">
@@ -108,7 +108,10 @@
         
             function hidewrapper (){
                 $(".wrapper").hide();
-        
+            }
+            function noclick(){
+                hidewrapper();
+                $("#artsuggest").html("Okay, we understand -- gotta maintain the flow state.")
             }
             </script>
         </body>
