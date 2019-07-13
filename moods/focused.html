@@ -11,113 +11,74 @@
         <link rel="stylesheet" href="../emotify/css/style.css">
     <title>Mood Board</title>
 
-    
     <!-- Firebase References -->
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-    <style> 
-            .wrapper{ 
-                text-align: center;}
-            .box{
-                padding-left: 10px;
-                padding-top: 5px;
-                text-align: center;
-                column-gap: 10px;
-                }
-        </style>
 </head>
 
-<body>
-        <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                    <h1 class="display-4">Focused</h1>
-                    <br>
-                    <div id="show-results-focused"></div>
-                    <br>
-                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/67536497&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-                    <br>
-                    <br>
-                    <div class="wrapper">
-                            <p>Would you like recommendations for similar artists?</p>
-                            <button class="btn btn-info" onclick= "tastecall()" role="button">Yes</button>
-                            <button class="btn btn-info" onclick="noclick()" role="button" >No</button>
-                        </div>
-                        <!-- User engagement results-->
-                        <div class ="box">
-                            <div id="artsuggest"></div>
-                            <div class="row" id="similarArtists">
-                            <div class="col-sm-4 col-md-6 col-lg-8"></div>
-                        </div>
+<body background="https://wallpaperplay.com/walls/full/6/2/9/157492.jpg">
+
+    <div class="jumbotron jumbotron-fluid">
+
+        <div class="container">
+
+            <h1 class="display-4">Focused</h1>
+
+            <br>
+
+            <div id="show-results-focused"></div>
+
+            <br>
+
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/67536497&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+
+            <br>
+            <br>
+
+            <!-- CSS -->
+            <style> 
+                #wrapper{ 
+                    text-align: center;
+                }
+                #container{
+                    padding-left: 10px;
+                    padding-top: 5px;
+                    text-align: center;
+                    column-gap: 10px;
+                }
+            </style>
+
+            <div id="wrapper">
+
+                <p>Would you like recommendations for similar artists?</p>
+                <button class="btn btn-info" data-search= "Brian+Eno" id= "yes" role="button">Yes, Please</button>
+                <a href= "../selection.html" class="btn btn-info" role="button">No, Return to Home Page</a>
+
+            </div>
+                    
+            <!-- User engagement results-->
+            <div id ="container">
+
+                <div id="artsuggest"></div>
+
+                <div class="row" id="similarArtists">
+                    <div class="col-sm-4 col-md-6 col-lg-8"></div>
                 </div>
 
             </div>
+
         </div>
+
+    </div>
         
-            <!-- jQuery -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        
-        <!-- Script -->
-        <script type="text/javascript" src="../selection.js"></script>
-        <script type="text/javascript">
-            // Event listener for suggestions=yes
-            function tastecall()  {
-                hidewrapper();
-            //API
-            //var queryURL = https://tastedive.com/api/similar?q=john+legend&info=1&limit=3
-            //with api key
-             var queryURL = "https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?q=brian+eno&k=340009-MelsDaug-2VN6UKUW&info=1&limit=3"
-             //Tastedive var queryURL = "https://api.giphy.com/v1/gifs/search?q=johnlegend&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=3";
-            //using giphy api just to test code since getting a Cors and Corb error
-            // Perfoming an AJAX GET request to our queryURL
-                $.ajax({
-                    url: queryURL,
-                    method: "GET"
-                })
-                .then(function(response) {
-                    console.log(response);
-            // storing the data from the AJAX request in the results variable
-                   var results = response.Similar.Results;
-                   console.log(results);
-              //Tastedive    var results = response.data;
-            // Looping through length =3
-                for (var i = 0; i < results.length; i++) {
-            // Creating and storing a div tag...for artist results
-                    var artistDiv = $("<div>");
-            // Creating a p tag for the Name of the artist
-                     var p = $("<p>").text("Artist Name: " + results[i].Name);
-               //Tastedive    var p = $("<p>").text("Artist Name: " + results[i].username);
-            // Creating and storing an image tag...for video
-                    //var artistURL = $("<img>");
-                var video = $('<iframe>')
-                video.attr('src', results[i].yUrl)
-                video.attr('width', 360)
-                video.attr('height', 115)
-                video.attr('allow', '"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"')
-            // Setting the src attribute of the vid to a the url in result
-                   //artistURL.attr("src", results[i].yUrl);
-                 //Tastedive     artistURL.attr("src", results[i].images.fixed_height.url);
-            // Appending both tags to the artistDiv
-                    artistDiv.append(p);
-                    //artistDiv.append(artistURL);
-                    artistDiv.append(video);
-            // Prependng the artistDiv to the HTML
-                    $("#similarArtists").prepend(artistDiv);
-                }
-        
-                });
-            }
-        
-            function hidewrapper (){
-                $(".wrapper").hide();
-            }
-            function noclick(){
-                hidewrapper();
-                $("#artsuggest").html("Okay, we understand -- gotta maintain the flow state.")
-            }
-            </script>
-        </body>
-        
-        
-        
-        </html>
+        <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <!-- Script -->
+    <script type="text/javascript" src="../selection.js"></script>
+    <script type="text/javascript" src="tastedive.js"></script>
+    
+    </body>
+    
+</html>
                
