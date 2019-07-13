@@ -1,3 +1,15 @@
 .jumbotron {
     background-color: transparent;
 }
+
+body{
+    background-color: lightslategray;
+}
+
+.card{
+    background-color: lightgrey;
+}
+
+.navbar {
+    background-color: transparent;
+}
