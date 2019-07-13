@@ -143,7 +143,7 @@ var queryURLrelaxed = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6
 //ANGRY GIF
 //
 //ANGRY GIF
-        var queryURLangry = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=lit";
+        var queryURLangry = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=angry";
         
         // Perfoming an AJAX GET request to our queryURL
         $.ajax({

@@ -2,14 +2,14 @@
     background-color: transparent;
 }
 
-body{
-    background-color: lightslategray;
-}
 
 .card{
     background-color: lightgrey;
 }
 
+#card-sign-in{
+    background-color: whitesmoke;
+}
 .navbar {
     background-color: transparent;
 }
